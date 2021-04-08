@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import Hero from "../../../../server/src/models/hero";
 import { HeroService } from "../common/services/hero.service";
 
@@ -13,14 +13,20 @@ export class FindComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     const heroId = this.route.snapshot.paramMap.get("id");
 
-    this.heroService.getHeroesById(heroId).subscribe((hero) => {
-      this.character = hero;
-    });
+    this.heroService.getHeroesById(heroId).subscribe(
+      (hero) => {
+        this.character = hero;
+      },
+      (err) => {
+        this.router.navigateByUrl("/");
+      }
+    );
   }
 }

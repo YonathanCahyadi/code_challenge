@@ -1,3 +1,8 @@
-.heroes {
+.layout {
+}
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

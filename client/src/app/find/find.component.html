@@ -1,1 +1,32 @@
+<div class="character-page-layout">
+  <div class="character-heading">
+    <img src="{{ character.photo }}" />
+    <h1>{{ character.name }}</h1>
+  </div>
+  <div>
+    <fieldset class="infos-container">
+      <legend><h2>Infos</h2></legend>
 
+      <div class="info-card">
+        <div class="info-card-classification">Eye</div>
+        <div>{{ character.infos.eyes }}</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-classification">Hair</div>
+        <div>{{ character.infos.hair }}</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-classification">Weight</div>
+        <div>{{ character.infos.weight }}</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-classification">Height</div>
+        <div>{{ character.infos.height }}</div>
+      </div>
+    </fieldset>
+    <fieldset class="bio-container">
+      <legend><h2>Bio</h2></legend>
+      <p>{{ character.bio }}</p>
+    </fieldset>
+  </div>
+</div>

@@ -1,1 +1,11 @@
-
+<div class="layout">
+  <div class="card-container">
+    <div *ngFor="let hero of heroes">
+      <app-card
+        [id]="hero.id"
+        [name]="hero.name"
+        [pictureUrl]="hero.photo"
+      ></app-card>
+    </div>
+  </div>
+</div>

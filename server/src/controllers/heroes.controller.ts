@@ -4,9 +4,7 @@ import HeroList from "../data/heroes.json";
 
 // Return list of all characters from data crawled from website
 const findAll = async (req: Express.Request, res: Express.Response) => {
-  return res.json({
-    heroes: HeroList
-  });
+  return res.json(HeroList);
 };
 
 // Return 1 character (based on id) from data crawled from website

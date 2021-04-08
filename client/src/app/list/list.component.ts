@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { HeroService } from '../common/services/hero.service';
+import { Component, OnInit } from "@angular/core";
+import Hero from "../../../../server/src/models/hero";
+import { HeroService } from "../common/services/hero.service";
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  selector: "app-list",
+  templateUrl: "./list.component.html",
+  styleUrls: ["./list.component.scss"],
 })
 export class ListComponent implements OnInit {
+  constructor(private heroService: HeroService) {}
 
-  constructor(private heroService: HeroService) { }
+  heroes: Hero[];
 
   ngOnInit(): void {
+    this.heroService.getHeroes().subscribe((heroes) => {
+      this.heroes = heroes;
+    });
   }
-
 }

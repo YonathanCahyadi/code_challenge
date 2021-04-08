@@ -20,7 +20,7 @@ const httpOptions = {
 })
 export class HeroService {
   // Url that your server is running on
-  private BASE_URL = "http://localhost:3000";
+  private BASE_URL = process.env.BASE_URL;
 
   constructor(private http: HttpClient) {}
 

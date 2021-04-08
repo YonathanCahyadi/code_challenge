@@ -1,15 +1,18 @@
 import * as Express from "express";
 import Hero from "../models/hero";
+import HeroList from "../data/heroes.json";
 
+// Return list of all characters from data crawled from website
 const findAll = async (req: Express.Request, res: Express.Response) => {
-        // Return list of all characters from data crawled from website
-}
+  return res.json({
+    heroes: HeroList
+  });
+};
 
-const findById = async (req: Express.Request, res: Express.Response) => {
-        // Return 1 character (based on id) from data crawled from website
-}
+// Return 1 character (based on id) from data crawled from website
+const findById = async (req: Express.Request, res: Express.Response) => {};
 
 export default {
-    findAll,
-    findById
-}
+  findAll,
+  findById
+};

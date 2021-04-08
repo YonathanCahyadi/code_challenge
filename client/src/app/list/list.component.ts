@@ -11,6 +11,7 @@ export class ListComponent implements OnInit {
   constructor(private heroService: HeroService) {}
 
   heroes: Hero[];
+  keyword: string;
 
   ngOnInit(): void {
     this.heroService.getHeroes().subscribe((heroes) => {

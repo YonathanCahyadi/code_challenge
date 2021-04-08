@@ -1,6 +1,14 @@
 <div class="layout">
+  <div class="search-bar-container">
+    <input
+      class="search-bar"
+      placeholder="Search Hero"
+      type="search"
+      [(ngModel)]="keyword"
+    />
+  </div>
   <div class="card-container">
-    <div *ngFor="let hero of heroes">
+    <div *ngFor="let hero of heroes | filterPipe: keyword">
       <app-card
         [id]="hero.id"
         [name]="hero.name"

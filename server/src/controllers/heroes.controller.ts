@@ -14,14 +14,10 @@ const findById = async (req: Express.Request, res: Express.Response) => {
   const hero = HeroList.filter((hero: Hero) => hero.id === id);
 
   if (hero.length === 0) {
-    return res.status(400).json({
-      error: "Hero not found."
-    });
+    return res.status(400).json("Hero not found.");
   }
 
-  return res.json({
-    hero: hero[0]
-  });
+  return res.json(hero[0]);
 };
 
 export default {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import Hero from "../../../../server/src/models/hero";
 import { HeroService } from "../common/services/hero.service";
 
 @Component({
@@ -7,8 +9,18 @@ import { HeroService } from "../common/services/hero.service";
   styleUrls: ["./find.component.scss"],
 })
 export class FindComponent implements OnInit {
-  character: any = {};
-  constructor(private heroService: HeroService) {}
+  character: Hero;
 
-  ngOnInit(): void {}
+  constructor(
+    private heroService: HeroService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    const heroId = this.route.snapshot.paramMap.get("id");
+
+    this.heroService.getHeroesById(heroId).subscribe((hero) => {
+      this.character = hero;
+    });
+  }
 }

@@ -1,3 +1,49 @@
-.hero {
+.character-page-layout {
+  margin: 32px 32px 0 32px;
+}
 
+.infos-container {
+  display: flex;
+
+  justify-content: space-evenly;
+}
+
+.character-heading {
+  vertical-align: middle;
+
+  h1 {
+    margin: 16px;
+    display: inline-block;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+.bio-container {
+  margin: 16px 0px 32px 0px;
+  padding: 16px;
+}
+
+.info-card {
+  background-color: rgb(177, 176, 176);
+  border-radius: 16px;
+  max-width: 100px;
+  width: 100px;
+
+  padding: 10px;
+
+  text-align: center;
+
+  margin: 10px 0px 16px 0px;
+}
+
+.info-card-classification {
+  text-align: center;
+  margin: 10px;
+
+  font-weight: bold;
+  border-bottom: 1px solid black;
 }

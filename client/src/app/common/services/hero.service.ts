@@ -20,7 +20,7 @@ const httpOptions = {
 })
 export class HeroService {
   // Url that your server is running on
-  private BASE_URL = process.env.BASE_URL;
+  private BASE_URL = "https://server-aw2lvokyd-yonathancahyadi.vercel.app";
 
   constructor(private http: HttpClient) {}
 

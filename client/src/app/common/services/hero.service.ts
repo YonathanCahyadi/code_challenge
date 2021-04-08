@@ -1,8 +1,13 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from "@angular/common/http";
 import Hero from "../../../../../server/src/models/hero";
 
-import { Observable, of } from "rxjs";
+import { Observable, throwError } from "rxjs";
+import { catchError } from "rxjs/operators";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,10 +25,18 @@ export class HeroService {
   constructor(private http: HttpClient) {}
 
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.BASE_URL + "/heroes", httpOptions);
+    return this.http
+      .get<Hero[]>(this.BASE_URL + "/heroes", httpOptions)
+      .pipe(catchError(this.handleError));
   }
 
   getHeroesById(id: string): Observable<Hero> {
-    return this.http.get<Hero>(`${this.BASE_URL}/heroes/${id}`);
+    return this.http
+      .get<Hero>(`${this.BASE_URL}/heroes/${id}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    return throwError(error);
   }
 }
